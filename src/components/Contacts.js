@@ -26,7 +26,7 @@ class Contacts extends Component {
                phone: '777-777-777'
                 }
             ]
-        }
+        };
     
 
     render() {
@@ -35,7 +35,7 @@ class Contacts extends Component {
         return (
             <React.Fragment>
             {contacts.map(contact => (
-                <Contact 
+                <Contact    // setting props to the contact component, accessible within that component file.  
                     key = {contact.id}
                     contact = {contact}
                 />

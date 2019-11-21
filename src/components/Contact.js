@@ -6,26 +6,33 @@ class Contact extends Component {
       showContactInfo: false
   };
 
+  onDeleteClick = () => {
+      alert('Hello Rachel!');
+  }
 
-    render() {
- 
-
+  render() {
+            // destructuring contact info from props.  
         const { name, email, phone } = this.props.contact;
-
+            // destructure boolean for showContact info from state - used to decide whether displayed card or not.
         const { showContactInfo } = this.state;
         
         return (
             <div className = "card card-body mb-3">
                 <h4> 
                     {name} {' '} 
-                    <i 
-                        onClick = {() => 
+                    <i onClick = {() => 
                         
                             this.setState({ showContactInfo: !this.state.showContactInfo })
                         }
-                        
-      
-                        className="far fa-address-book" /> 
+                        className="far fa-address-book" 
+                        style = {{cursor: 'pointer'}}    
+                        />
+
+                    <i 
+                        className = "fas fa-times" style = {{cursor: 'pointer', float: 'right', color: 'red'}} 
+                        onClick = {this.onDeleteClick}
+
+                        />
                 </h4>
 
                 {showContactInfo ? (
