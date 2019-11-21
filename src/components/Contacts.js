@@ -28,6 +28,13 @@ class Contacts extends Component {
             ]
         };
     
+        deleteContact = (id) => {
+            const { contacts } = this.state; 
+            const updatedContacts = contacts.filter((contact) => contact.id !== id);
+            this.setState({
+                contacts: updatedContacts
+            });
+        }
 
     render() {
         const { contacts } = this.state;
@@ -38,6 +45,7 @@ class Contacts extends Component {
                 <Contact    // setting props to the contact component, accessible within that component file.  
                     key = {contact.id}
                     contact = {contact}
+                    deleteClickHandler = {this.deleteContact.bind(this, contact.id)}
                 />
             ))}
             </React.Fragment>
