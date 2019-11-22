@@ -38,4 +38,4 @@ export class Provider extends Component {
    }
 }
 
-export const Consumer = Context.Consumer;
+export const Consumer = Context.Consumer; 

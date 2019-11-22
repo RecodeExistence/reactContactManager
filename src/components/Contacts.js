@@ -15,10 +15,12 @@ class Contacts extends Component {
         }
 
     render() {
-        const { contacts } = this.state;
-
         return (
-            <React.Fragment>
+            <Consumer>
+            {value => { 
+                const { contacts } = value; 
+                return (
+                    <React.Fragment>
             {contacts.map(contact => (
                 <Contact    // setting props to the contact component, accessible within that component file.  
                     key = {contact.id}
@@ -27,9 +29,15 @@ class Contacts extends Component {
                 />
             ))}
             </React.Fragment>
-        );
+                )
+            }}
+            </Consumer>
+        )
+
+
+
     }
     
 }
-
+ 
 export default Contacts;
